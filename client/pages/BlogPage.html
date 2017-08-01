@@ -1,0 +1,19 @@
+<template name="BlogPage">
+    <h1 class="page-title">Write a Blog</h1>
+    {{> quickForm collection="Blogs" id="insertBlogForm" type="insert" class="new-recipe-form"}}
+
+    <h1 class="page-title">Your Blogs</h1>
+    {{#each blogs}}
+        {{> section}}
+    {{/each}}
+</template>
+
+<template name="section">
+    <ul class="shopping-list">
+    <li>
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+        <i class="fa fa-trash"></i>
+    </li>
+    </ul>
+</template>
