@@ -1,0 +1,19 @@
+<template name="Vote">
+    <container class="section-class">
+        <h1 class="page-title">Vote in Elections</h1>
+        {{#each polls}}
+            {{> electionVote}}
+        {{/each}}
+    </container>
+</template>
+
+<template name="electionVote">
+    <ul class="shopping-list">
+        <li>
+            <h1>{{question}}</h1>
+            {{#each answers}}
+                <button name="{{_id}}" data-pk="{{_id}}" id="{{_id}}" class="{{@index}} {{polls.id}} waves-effect waves-light btn modal-trigger light-blue nav-btn btn-trigger-vote">{{this}}</button>
+            {{/each}}
+        </li>
+    </ul>
+</template>

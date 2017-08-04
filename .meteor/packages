@@ -46,3 +46,8 @@ accounts-base
 accounts-password
 email
 alanning:roles
+accounts-google
+accounts-facebook
+facebook-config-ui
+google-config-ui
+useraccounts:materialize

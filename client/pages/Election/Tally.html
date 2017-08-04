@@ -1,0 +1,27 @@
+<template name="Tally">
+    <container class="section-class">
+        <h1 class="page-title">Election Results</h1>
+        {{#each polls}}
+            {{> tallyVote}}
+        {{/each}}
+    </container>
+</template>
+
+
+<template name="tallyVote">
+    <ul class="shopping-list">
+        <div class="row results-class">
+            <h1>{{question}}</h1>
+            <div class="col col-text-align row-handler-results">
+                {{#each answers}}
+                    <h4 class="election-results"><b>{{this}}</b></h4>
+                {{/each}}
+            </div>
+            <div class="col col-text-align row-handler-results">
+                {{#each results}}
+                    <h4 class="election-results">{{this}}</h4>
+                {{/each}}
+            </div>
+        </div>
+    </ul>
+</template>

@@ -10,6 +10,25 @@ Meteor.publish('blogs', function() {
     });
 });
 
+// Find all polls that are currently available:
+Meteor.publish('polls', function() {
+    return Polls.find();
+});
+
+// Find all polls that you created:
+Meteor.publish('myPolls', function(id) {
+        return Polls.find({
+            author:this.userId
+        });
+});
+
+// Find all polls where you are in the 'voters' field of document:
+Meteor.publish('electoratePolls', function(id) {
+        return Polls.find({
+            voters:this.userId // Add users to vote by the user's ID
+        });
+});
+
 // Find all blogs
 Meteor.publish('blogsAll', function() {
     return Blogs.find();

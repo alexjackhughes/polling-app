@@ -1,11 +1,16 @@
 <template name="BlogPage">
+    <container class="section-class">
+    {{#if currentUser}}
     <h1 class="page-title">Write a Blog</h1>
     {{> quickForm collection="Blogs" id="insertBlogForm" type="insert" class="new-recipe-form"}}
-
     <h1 class="page-title">Your Blogs</h1>
     {{#each blogs}}
         {{> section}}
     {{/each}}
+    {{else}}
+        <h1 class="section-class">Not Authorized</h1>
+    {{/if}}
+    </container>
 </template>
 
 <template name="section">
@@ -13,7 +18,9 @@
     <li>
         <h1>{{title}}</h1>
         <p>{{description}}</p>
-        <i class="fa fa-trash"></i>
+        {{#if currentUser}}
+            <i class="fa fa-trash"></i>
+        {{/if}}
     </li>
     </ul>
 </template>

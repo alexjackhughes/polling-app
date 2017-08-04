@@ -1,0 +1,16 @@
+<template name="Dashboard">
+    <container class="section-class">
+        <h1 class="page-title">All Elections</h1>
+        {{#each polls}}
+            {{> allVote}}
+        {{/each}}
+    </container>
+</template>
+
+<template name="allVote">
+    <ul class="shopping-list">
+        <li>
+            <h1>{{question}}</h1>
+        </li>
+    </ul>
+</template>

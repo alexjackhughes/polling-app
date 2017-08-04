@@ -1,0 +1,24 @@
+<template name="Create">
+    <container class="section-class">
+        <h1 class="page-title">Create New Elections</h1>
+        {{> quickForm collection="Polls" id="insertPollRecipe" type="insert"
+            class="new-recipe-form"}}
+    </container>
+    <container class="section-class">
+        <h1 class="page-title">My Elections</h1>
+        {{#each polls}}
+            {{> myElectionVote}}
+        {{/each}}
+    </container>
+</template>
+
+<template name="myElectionVote">
+    <ul class="shopping-list">
+        <li>
+            <h1>{{question}}</h1>
+            {{#if currentUser}}
+                <i class="fa fa-trash"></i>
+            {{/if}}
+        </li>
+    </ul>
+</template>

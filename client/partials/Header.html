@@ -1,14 +1,25 @@
 <template name="Header">
-    <nav class="light-red main-nav-bar">
+    <nav class="blue main-nav-bar">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo"><b>Mighty Meteor</b></a>
+                <a href="/" class="brand-logo text-style"><b>Belenios RF+</b></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    {{#if currentUser}}
                     <li class="nav-item">
-                        <a href="/blog">Blog</a>
+                        <a href="/dashboard" class="text-style"><b>DASHBOARD</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="waves-effect waves-light btn modal-trigger light-blue nav-btn" href="/sign">Login</a>
+                        <a href="/create" class="text-style"><b>CREATE</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/vote" class="text-style"><b>VOTE</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/results" class="text-style"><b>RESULTS</b></a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item">
+                        <a class="waves-effect waves-light btn modal-trigger light-green nav-btn" href="/sign">Login</a>
                     </li>
                 </ul>
             </div>

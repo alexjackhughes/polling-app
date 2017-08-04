@@ -1,7 +1,6 @@
 /*
- * JavaScript is used to manipulate and interact with the page:
+JavaScript is used to manipulate and interact with the page:
  */
-
 /*
  * JavaScript that runs on creation of page:
  */
@@ -9,6 +8,7 @@ Template.BlogPage.onCreated(function() {
     var self = this;
     self.autorun(function() {
         self.subscribe('blogs');
+        self.subscribe('polls');
     });
 });
 
@@ -18,6 +18,9 @@ Template.BlogPage.onCreated(function() {
 Template.BlogPage.helpers({
     blogs: function() {
         return Blogs.find();
+    },
+    polls: function() {
+        return Polls.find();
     }
 });
 
