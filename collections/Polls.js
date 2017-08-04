@@ -27,7 +27,11 @@ PollSchema = new SimpleSchema({
     },
     results: {
         type: [Number],
-        label: "Results"
+        label: "Results",
+        defaultValue: 0,
+        autoform: {
+            type: "hidden"
+        }
     },
     voters: {
         type: [String],

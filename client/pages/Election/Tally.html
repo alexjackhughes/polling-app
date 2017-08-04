@@ -9,19 +9,24 @@
 
 
 <template name="tallyVote">
-    <ul class="shopping-list">
-        <div class="row results-class">
-            <h1>{{question}}</h1>
-            <div class="col col-text-align row-handler-results">
-                {{#each answers}}
-                    <h4 class="election-results"><b>{{this}}</b></h4>
-                {{/each}}
-            </div>
-            <div class="col col-text-align row-handler-results">
-                {{#each results}}
-                    <h4 class="election-results">{{this}}</h4>
-                {{/each}}
-            </div>
+        <div class="row results-class shopping-list">
+            <h1 class="page-title">{{question}}</h1>
+
+            <table class="striped">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    {{#each answers}}
+                        <td><h4 class="election-results"><b>{{this}}</b></h4></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each results}}
+                        <td><h4 class="election-results">{{this}}</h4></td>
+                    {{/each}}
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </ul>
 </template>
