@@ -1,10 +1,10 @@
-# Template Application
+# Polling Application
 
-This is a light-weight boilerplate application I've customized from scratch,
-to allow me to pull the template and get to work on the important bits.
+This is an election App based off of the Belenios Receipt-Freeness+ online voting
+protocol, which is used from encryption.
 
-Feel free to use the code as you see fit, it's built using the lovely system,
-Meteor.
+Users are able to create an account, create elections with unlimited answer options,
+vote in those elections, and the results of which will be tallied in real time.
 
 ## Getting Started
 
