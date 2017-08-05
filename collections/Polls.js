@@ -67,19 +67,20 @@ Meteor.methods({
     // Removes user from votes - requires the id of the document
     // and the voter's userId:
     updateVoter: function(id) {
+        console.log(id);
         Polls.update(
-            {id: id, voters: this.userId},
-            {
-                $set: {'voters.$': ''} // Set voter in slot 0 to nothing
-            }
+            {_id: id, voters:this.userId},
+            { $set: {"voters.$": ""}}
         );
     },
     // Increment the results by one vote - requires document id, and
     // the array slot of the correct answer:
     updateResults: function(docId, questionId) {
+        // Check whether the user is allowed to vote:
         var voterExist = Polls.find({voters: this.userId, _id:docId}).count() > 0;
+        // Create the update JSON string:
         var resultQuery = 'results.' + questionId;
-
+        // If user is able to vote, increment the correct vote:
         if (voterExist === true) {
             Polls.update(
                 {_id: docId}, {
@@ -87,23 +88,6 @@ Meteor.methods({
                 }
             )
         }
-
-        // Make sure the user is in the author section - works!:
-        // var voterExist = Polls.find({voters: this.userId, id:id}).count() > 0;
-        // //console.log(voterExist);
-        // // If the user is allowed to vote, increment their vote:
-        //
-        // if (voterExist === true) {
-        //     //var resultQuery = 'results.' + questionId;
-        //     var resultQuery = 'results.' + questionId;
-        //     // Increments the array by 1
-        //     Polls.update(
-        //         {id: id},
-        //         {
-        //             $inc: { [resultQuery]: 1 } // Right now, increments just slot 0
-        //         }
-        //     );
-        // }
     }
 });
 
